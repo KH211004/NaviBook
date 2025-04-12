@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NaviBook - Traveller Details</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styling for body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(190, 222, 236);
+            display: flex; /* Use flexbox */
+            justify-content: center; /* Horizontally center */
+            align-items: center; /* Vertically center */
+            min-height: 100vh; /* Make the body take full viewport height */
+        }
+    
+        /* Form styling */
+        .form-container {
+            background-color: rgba(54, 48, 48, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: #f8c159d7;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .form-group input[type="radio"], .form-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .form-group .radio-label {
+            display: inline;
+            margin-right: 20px;
+            font-size: 16px;
+            color: white;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background-color: #efbd60d7;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #f7d5ba;
+        }
+
+        .error {
+            color: red;
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Enter Traveller Details</h2>
+        <form id="travellerForm" onsubmit="return validateForm()">
+            <!-- Name -->
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                <div class="error" id="nameError"></div>
+            </div>
+
+            <!-- Age -->
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" placeholder="Enter your age" required>
+                <div class="error" id="ageError"></div>
+            </div>
+
+            <!-- Gender -->
+            <div class="form-group">
+                <label>Gender</label>
+                <div>
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="Male" required> Male
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="Female"> Female
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="gender" value="Other"> Other
+                    </label>
+                </div>
+                <div class="error" id="genderError"></div>
+            </div>
+
+            <!-- Number of Passengers -->
+            <div class="form-group">
+                <label for="passengers">Number of Passengers</label>
+                <input type="number" id="passengers" name="passengers" placeholder="Enter number of passengers" required>
+                <div class="error" id="passengersError"></div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="submit-btn">
+                <a href="paymentOption.html">Submit</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Form validation function
+        function validateForm() {
+            let isValid = true;
+
+            // Name validation
+            const name = document.getElementById('name').value;
+            if (name === '') {
+                document.getElementById('nameError').textContent = "Name is required.";
+                isValid = false;
+            } else {
+                document.getElementById('nameError').textContent = "";
+            }
+
+            // Age validation
+            const age = document.getElementById('age').value;
+            if (age === '' || age < 1) {
+                document.getElementById('ageError').textContent = "Please enter a valid age.";
+                isValid = false;
+            } else {
+                document.getElementById('ageError').textContent = "";
+            }
+
+            // Gender validation
+            const gender = document.querySelector('input[name="gender"]:checked');
+            if (!gender) {
+                document.getElementById('genderError').textContent = "Please select a gender.";
+                isValid = false;
+            } else {
+                document.getElementById('genderError').textContent = "";
+            }
+
+            // Passenger validation
+            const passengers = document.getElementById('passengers').value;
+            if (passengers === '' || passengers < 1) {
+                document.getElementById('passengersError').textContent = "Please enter a valid number of passengers.";
+                isValid = false;
+            } else {
+                document.getElementById('passengersError').textContent = "";
+            }
+
+            return isValid;
+        }
+    </script>
+
+</body>
+</html>

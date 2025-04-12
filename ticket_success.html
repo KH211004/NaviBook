@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket Confirmation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .ticket-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 25px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            background-color: #f9f9f9;
+        }
+        .ticket-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .ticket-header h2 {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ticket-container">
+        <div class="ticket-header">
+            <h2>Ticket Confirmation</h2>
+            <p>Thank you for booking with <strong>NaviBook</strong></p>
+        </div>
+
+        <p><strong>Passenger Name:</strong> <span id="passenger-name"></span></p>
+        <p><strong>Mobile Number:</strong> <span id="mobile-no"></span></p>
+        <p><strong>Seat:</strong> <span id="seat-numbers"></span></p>
+
+        <div id="vehicle-details"></div>
+
+        <p><strong>From:</strong> <span id="from-location"></span></p>
+        <p><strong>To:</strong> <span id="to-location"></span></p>
+        <p><strong>Date:</strong> <span id="travel-date"></span></p>
+        <p><strong>Departure:</strong> <span id="departure-time"></span></p>
+        <p><strong>Arrival:</strong> <span id="arrival-time"></span></p>
+
+        <hr>
+        <p><strong>Booking ID:</strong> <span id="booking-id"></span></p>
+        <p><strong>Status:</strong> <span id="status"></span></p>
+        <p><strong>Booking Date:</strong> <span id="booking-date"></span></p>
+
+        <div class="text-center mt-4">
+            <a href="homepage.html" class="btn btn-primary">Go to Home</a>
+        </div>
+    </div>
+
+    <script>
+        // Sample data to simulate booking and travel object
+        const booking = {
+            name: "John Doe",
+            mobile_no: "9876543210",
+            seat_numbers: "A1, A2",
+            id: "NB123456",
+            status: "confirmed",
+            booking_date: "2025-04-12",
+            vehicle_type: "bus" // "train" or "flight"
+        };
+
+        const travel_object = {
+            operator_name: "BlueLine Travels",     // For Bus
+            train_name: "Express 2025",           // For Train
+            airline_name: "IndiGo Airlines",      // For Flight
+            class_type: "AC Sleeper",
+            source: "Mumbai",
+            destination: "Pune",
+            travel_date: "2025-04-20",
+            departure_time: "07:00 AM",
+            arrival_time: "10:30 AM"
+        };
+
+        // Inject booking details
+        document.getElementById("passenger-name").textContent = booking.name;
+        document.getElementById("mobile-no").textContent = booking.mobile_no;
+        document.getElementById("seat-numbers").textContent = booking.seat_numbers;
+
+        // Vehicle-specific details
+        const vehicleDiv = document.getElementById("vehicle-details");
+        let vehicleInfo = "";
+        if (booking.vehicle_type === "bus") {
+            vehicleInfo += `<p><strong>Bus:</strong> ${travel_object.operator_name}</p>`;
+        } else if (booking.vehicle_type === "train") {
+            vehicleInfo += `<p><strong>Train:</strong> ${travel_object.train_name}</p>`;
+        } else if (booking.vehicle_type === "flight") {
+            vehicleInfo += `<p><strong>Flight:</strong> ${travel_object.airline_name}</p>`;
+        }
+        vehicleInfo += `<p><strong>Type:</strong> ${travel_object.class_type}</p>`;
+        vehicleDiv.innerHTML = vehicleInfo;
+
+        // Travel details
+        document.getElementById("from-location").textContent = travel_object.source;
+        document.getElementById("to-location").textContent = travel_object.destination;
+        document.getElementById("travel-date").textContent = travel_object.travel_date;
+        document.getElementById("departure-time").textContent = travel_object.departure_time;
+        document.getElementById("arrival-time").textContent = travel_object.arrival_time;
+
+        // Final booking info
+        document.getElementById("booking-id").textContent = booking.id;
+        document.getElementById("status").textContent = booking.status.charAt(0).toUpperCase() + booking.status.slice(1);
+        document.getElementById("booking-date").textContent = booking.booking_date;
+    </script>
+
+</body>
+</html>

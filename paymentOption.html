@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <style>
+        .submit-btn{
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background-color: #efbd60d7;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #f7d5ba;
+        }
+    </style>
+</head>
+<body>
+    <h1>Complete Your Payment</h1>
+    <p>Booking ID: <span id="booking-id">BOOKING_ID</span></p>
+    <p>Amount: ₹<span id="amount-display">500</span></p> <!-- Display actual amount -->
+    <div class="submit-btn">
+        <a href="booking_success.html">Pay Now</a>
+    </div>
+
+    <form action="booking_success.html" method="POST" id="razorpay-form" style="display: none;">
+        <input type="hidden" name="razorpay_order_id" id="razorpay_order_id">
+    </form>
+
+    <script>
+        // Set your actual values here
+        const bookingId = 'BOOKING_ID'; // Replace with real booking ID
+        const amount = 50000; // Amount in paise (₹500.00)
+        const razorpayKey = 'YOUR_RAZORPAY_KEY';
+        const paymentOrderId = 'RAZORPAY_ORDER_ID_FROM_SERVER'; // Replace with actual Razorpay order ID
+
+        document.getElementById('pay-button').onclick = function (e) {
+            var options = {
+                "key": razorpayKey,
+                "amount": amount,
+                "currency": "INR",
+                "name": "NaviBook",
+                "description": "Payment for Booking",
+                "order_id": paymentOrderId,
+                "handler": function (response) {
+                    // Set order ID in hidden input and submit form
+                    document.getElementById('razorpay_order_id').value = response.razorpay_order_id;
+                    document.getElementById('razorpay-form').submit();
+                },
+                "theme": {
+                    "color": "#528ff0"
+                }
+            };
+
+            var rzp = new Razorpay(options);
+            rzp.open();
+            e.preventDefault();
+        };
+    </script>
+</body>
+</html>

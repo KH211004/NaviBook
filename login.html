@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NaviBook - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+        }
+
+        body {
+            background-image: url("C:\Users\HP\Documents\web development\pics\Screenshot 2024-09-10 153316.png");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            background-color: rgb(190, 222, 236);
+            align-items: center;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            padding: 30px;
+            border-radius: 20px;
+            color: white;
+        }
+
+        .container h1 {
+            font-size: 3em;
+            color: #ffa500;
+            margin-bottom: 20px;
+        }
+
+        .container h2 {
+            color: #ffa500;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .input-box {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            background-color: #111010;
+            padding: 10px;
+            border-radius: 30px;
+        }
+
+        .input-box input {
+            width: 85%;
+            padding: 10px;
+            border: none;
+            background: none;
+            color: white;
+            font-size: 1em;
+            outline: none;
+        }
+
+        .input-box i {
+            color: orange;
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .btn {
+            width: 100%;
+            background-color: orange;
+            color: black;
+            padding: 10px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .btn:hover {
+            background-color: #f7d5ba;
+        }
+
+        .forgot {
+            color: white;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .sign-up {
+            color: white;
+            font-size: 1em;
+        }
+
+        .sign-up a {
+            color: purple;
+            text-decoration: none;
+        }
+
+        .sign-up a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>NaviBook</h1>
+        <h2>--Travel Here--</h2>
+        <h3>SIGN IN</h3>
+
+        <div class="input-box">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email id">
+        </div>
+
+        <div class="input-box">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password">
+        </div>
+
+        <form action="homepage.html" method="GET">
+            <button class="btn">Log in</button>
+        </form>
+            
+
+        <a href="signup.html" class="forgot">Forgot your password?</a>
+
+        <div class="sign-up">
+            Don't have an account? <a href="signup.html">Sign up</a>
+        </div>
+    </div>
+
+    <!-- FontAwesome for icons (Optional, include this if you need the icons) -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

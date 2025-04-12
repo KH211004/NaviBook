@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NaviBook - Discover Attractions</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styling for body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            padding: 0.5em 2em;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-logo img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        /* Navbar menu styles (left-aligned) */
+        .navbar-menu {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-menu li {
+            margin-left: 20px;
+            position: relative;
+        }
+
+        .navbar-menu li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-menu li a i {
+            margin-right: 8px; /* Space between icon and text */
+        }
+
+        .navbar-menu li a:hover {
+            background-color: rgb(76, 74, 74);
+        }
+
+        /* Login/Signup styling (right-aligned) */
+        .auth-links {
+            margin-left: auto;
+            color: white;
+        }
+
+        .auth-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .auth-links a:hover {
+            color: orange;
+            text-decoration: underline; /* Underline effect on hover */
+        }
+
+
+        /* Main container */
+        .container {
+            background-image: url('https://images.pexels.com/photos/28840616/pexels-photo-28840616/free-photo-of-coastal-view-of-etretat-cliffs-and-town.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Dropdown and button container */
+        .search-container {
+            display: flex;
+            align-items: center;  /* Align items in a row */
+            justify-content: center;
+            gap: 10px;  /* Space between dropdown and button */
+            margin-top: 20px;
+        }
+
+        /* Dropdown styling */
+        select {
+            padding: 10px;
+            font-size: 16px;
+            background: rgb(216, 212, 212);
+            border-radius: 5px;
+            border: 1px solid #a6a4a4;
+            width: 300px; /* Increase width */
+            height: 50px; /* Increase height */
+            font-size: 18px; /* Increase font size */
+        }
+
+        /* Button styling */
+        .search-btn {
+            padding: 11px 15px;
+            font-size: 14px;
+            border: none;
+            background-color: #eba525da;
+            color: black;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 150px; /* Increase width */
+            height: 50px; /* Increase height */
+            font-size: 19px; /* Increase font size */
+            font-weight: bold;
+        }
+
+        .search-btn:hover {
+            background-color: #f7d5ba;
+        }
+
+        /* Attraction card styling */
+        .attraction-card {
+            display: flex;
+            align-items: center;
+            background: rgb(212, 204, 204);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .attraction-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .attraction-info {
+            text-align: left;
+        }
+
+        .attraction-info h3 {
+            margin: 5px 0;
+        }
+
+        .attraction-info a {
+            text-decoration: underline;
+            color: rgb(29, 29, 237);
+        }
+        h1 {
+            color:#eba525da;; /* Change to any color you like */
+            font-size: 40px; /* Adjust size if needed */
+            margin-left: -90px; /* Adjust this value to move it further left */
+            margin-top: 10px;
+
+}
+
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="navbar-logo">
+            <img src="C:\Users\HP\Downloads\DALL·E 2024-10-13 14.38.08 - A logo for 'NaviBook', featuring a modern and sleek design. The logo should include an abstract symbol of navigation (like a compass or a map pin) com.webp">
+            NaviBook
+        </div>
+        <ul class="navbar-menu">
+            <li>
+                <a href="homepage.html"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li>
+                <a href="bus.html"><i class="fas fa-bus"></i> Bus</a>
+            </li>
+            <li>
+                <a href="train.html"><i class="fas fa-train"></i> Train</a>
+            </li>
+            <li>
+                <a href="flight.html"><i class="fas fa-plane"></i> Flight</a>
+            </li>
+            <li>
+                <a href="SearchPlace.html"><i class="fas fa-map-marker-alt"></i> Seach Places</a>
+            </li>
+            <li>
+                <a href="aboutus.html"><i class="fas fa-info-circle"></i> About Us</a>
+            </li>
+        </ul>
+        <div class="auth-links">
+            <a href="login.html">Login</a>  
+            <a href="signup.html">Sign Up</a>
+        </div>
+    </header>
+    
+    <div class="container">
+
+        <h1>Search a City</h1>
+        <div class="search-container">
+            <select id="cityDropdown">
+                <option value="">-- Select a City --</option>
+                <option value="London">London</option>
+                <option value="New York">New York</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Chennai">Chennai</option>
+            </select>
+            <button class="search-btn" onclick="fetchAttractions()">Search</button>
+        </div>
+
+        <div id="attractionsList"></div>
+    </div>
+
+    <script>
+        const attractionsData = {
+            "London": [
+                { name: "Big Ben", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Clock_Tower_-_Palace_of_Westminster%2C_London_-_September_2006.jpg/800px-Clock_Tower_-_Palace_of_Westminster%2C_London_-_September_2006.jpg", description: "Iconic clock tower in London.", link: "https://www.google.com/search?q=Big+Ben" },
+                { name: "London Eye", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/London-Eye-2009.JPG/1280px-London-Eye-2009.JPG", description: "Famous Ferris wheel with city views.", link: "https://www.google.com/search?q=London+Eye" },
+                { name: "Tower of London", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Tower_of_London_viewed_from_the_River_Thames.jpg/450px-Tower_of_London_viewed_from_the_River_Thames.jpg", description: "Historic fortress and landmark.", link: "https://www.google.com/search?q=Tower+of+London" }
+            ],
+            "New York": [
+                { name: "Statue of Liberty", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Front_view_of_Statue_of_Liberty_with_pedestal_and_base_2024.jpg/800px-Front_view_of_Statue_of_Liberty_with_pedestal_and_base_2024.jpg", description: "Iconic symbol of freedom.", link: "https://www.google.com/search?q=Statue+of+Liberty" },
+                { name: "Times Square", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/New_york_times_square-terabass.jpg/1280px-New_york_times_square-terabass.jpg", description: "Bustling commercial and entertainment hub.", link: "https://www.google.com/search?q=Times+Square" },
+                { name: "Central Park", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Global_Citizen_Festival_Central_Park_New_York_City_from_NYonAir_%2815351915006%29.jpg/1280px-Global_Citizen_Festival_Central_Park_New_York_City_from_NYonAir_%2815351915006%29.jpg", description: "Large urban park with nature and activities.", link: "https://www.google.com/search?q=Central+Park" }
+            ],
+            "Delhi": [
+                { name: "India Gate", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/India_Gate_on_the_evening_of_77th_Independence_day.jpg/800px-India_Gate_on_the_evening_of_77th_Independence_day.jpg", description: "War memorial and landmark in Delhi.", link: "https://www.google.com/search?q=India+Gate" },
+                { name: "Red Fort", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Delhi_fort.jpg/330px-Delhi_fort.jpg", description: "Historic Mughal fort.", link: "https://www.google.com/search?q=Red+Fort" },
+                { name: "Qutub Minar", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Qutb_Minar_2011.jpg/320px-Qutb_Minar_2011.jpg", description: "Tallest brick minaret in the world.", link: "https://www.google.com/search?q=Qutub+Minar" }
+            ],
+            "Mumbai": [
+                { name: "Gateway of India", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Mumbai_03-2016_30_Gateway_of_India.jpg/800px-Mumbai_03-2016_30_Gateway_of_India.jpg", description: "Historic monument overlooking the Arabian Sea.", link: "https://www.google.com/search?q=Gateway+of+India" },
+                { name: "Marine Drive", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Marine_Drive_Skyline.jpg/800px-Marine_Drive_Skyline.jpg", description: "Scenic seaside promenade.", link: "https://www.google.com/search?q=Marine+Drive" },
+                { name: "Elephanta Caves", image: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Elephanta_Caves_Trimurti.jpg", description: "Ancient cave temples.", link: "https://www.google.com/search?q=Elephanta+Caves" }
+            ],
+            "Chennai": [
+                { name: "Marina Beach", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Chennai_-_bird%27s-eye_view.jpg/405px-Chennai_-_bird%27s-eye_view.jpg", description: "One of the longest urban beaches.", link: "https://www.google.com/search?q=Marina+Beach" },
+                { name: "Kapaleeshwarar Temple", image: "https://upload.wikimedia.org/wikipedia/commons/9/99/Kapaleeswarar1.jpg", description: "Historic Hindu temple.", link: "https://www.google.com/search?q=Kapaleeshwarar+Temple" },
+                { name: "Fort St. George", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Fort_St._George%2C_Chennai_2.jpg/1024px-Fort_St._George%2C_Chennai_2.jpg", description: "Colonial-era fort with museum.", link: "https://www.google.com/search?q=Fort+St.+George" }
+            ]
+        };
+    
+        function fetchAttractions() {
+            const city = document.getElementById("cityDropdown").value;
+            const attractionsList = document.getElementById("attractionsList");
+            attractionsList.innerHTML = "";
+    
+            if (city && attractionsData[city]) {
+                attractionsData[city].forEach(attraction => {
+                    const card = document.createElement("div");
+                    card.classList.add("attraction-card");
+    
+                    card.innerHTML = `
+                        <img src="${attraction.image}" alt="${attraction.name}">
+                        <div class="attraction-info">
+                            <h3>${attraction.name}</h3>
+                            <p>${attraction.description}</p>
+                            <a href="${attraction.link}" target="_blank">More Info</a>
+                        </div>
+                    `;
+                    attractionsList.appendChild(card);
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>
